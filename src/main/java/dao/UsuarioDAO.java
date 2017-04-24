@@ -22,7 +22,7 @@ public class UsuarioDAO {
 
     private Connection conexion;
 
-    public UsuarioDAO() throws URISyntaxException {
+    public UsuarioDAO() {
         this.conexion = Conexion.getConnection();
     }
 

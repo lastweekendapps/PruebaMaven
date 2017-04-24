@@ -2,12 +2,19 @@ package dao;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Conexion {
 	
 	private static Connection CONEXION=null;
-    	public static Connection getConnection() throws URISyntaxException{
-            URI dbUri = new URI(System.getenv("DATABASE_URL"));
+    	public static Connection getConnection()  {
+            URI dbUri= null;
+            try {
+                dbUri = new URI(System.getenv("DATABASE_URL"));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+            }
             String username = dbUri.getUserInfo().split(":")[0];
             String password = dbUri.getUserInfo().split(":")[1];
             String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();

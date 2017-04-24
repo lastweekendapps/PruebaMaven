@@ -25,7 +25,7 @@ import vo.RecordatorioVO;
 public class RecordatorioDAO {
     private Connection conexion;
 
-    public RecordatorioDAO() throws URISyntaxException {
+    public RecordatorioDAO()  {
         this.conexion = Conexion.getConnection();
     }
     

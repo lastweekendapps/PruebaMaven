@@ -23,7 +23,7 @@ import vo.ClienteVO;
 public class ClienteDAO {
     private Connection conexion;
 
-    public ClienteDAO() throws URISyntaxException {
+    public ClienteDAO() {
         this.conexion = Conexion.getConnection();
     }
     
